@@ -46,15 +46,11 @@ def attempt_swap(assignments, preferences, combination):
                         return True, score_delta
     return False, 0
 
-# best_score = 35
-# everyone_happy = False
-
 overall_best_combination = None
 overall_best_assignments = None
 overall_best_score = 9999
 max_iterations = 100
 
-# while (best_score > 25 or not everyone_happy) and max_iterations > 0:
 while max_iterations > 0:
     randomly_generated_student_order = np.random.permutation(preferences.shape[0])
     # randomly_generated_student_order = np.range(preferences.shape[0])
@@ -91,16 +87,10 @@ while max_iterations > 0:
             best_combination = combination
             best_assignments = assignments
             best_score = score
-        
-        # if score == 24:
-        #     print(combination)
-        #     print(assignments)
 
     # print(best_combination)
     # print(best_assignments)
     # print(best_score)
-
-    # everyone_happy = True
             
     if best_score < overall_best_score:
         overall_best_combination = best_combination
@@ -115,5 +105,4 @@ print(overall_best_score)
 # for i in range(5):
 #     for j in overall_best_assignments[i]:
 #         if preferences[j, overall_best_combination[i]] > 2:
-#             everyone_happy = False
 #             print(f"Student {j} is not happy with their assignment.")
